@@ -7,7 +7,7 @@
         $manejador = fopen($archivo, "r");
         $contador = 0;
         while (($linea = fgets($manejador)) !== false) {
-            if($contador > 5){break;}
+            //if($contador > 5){break;}
             $datos = procesaLinea($linea);
             $peticion = '
                 INSERT INTO mensajes
@@ -23,7 +23,7 @@
                     "'.$datos["mensaje"].'"
                 );
         ';
-            echo $peticion."<br>";
+            //echo $peticion."<br>";
             $base->exec($peticion);
             $contador++;
         }
