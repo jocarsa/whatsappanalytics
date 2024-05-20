@@ -1,14 +1,17 @@
 <?php
-
-    $archivo = "entradas/_chat.txt";
-    $manejador = fopen($archivo, "r");
-    $contador = 0;
-    while (($line = fgets($manejador)) !== false) {
-        if($contador > 5){break;}
-        echo $line . "<br>"; 
-        $contador++;
+    include "transformar.php";
+    function leeArchivo($nombre){
+        $archivo = "entradas/$nombre";
+        $manejador = fopen($archivo, "r");
+        $contador = 0;
+        while (($linea = fgets($manejador)) !== false) {
+            if($contador > 5){break;}
+            $datos = procesaLinea($linea);
+            var_dump($datos);
+            $contador++;
+        }
+        fclose($manejador);
     }
-    fclose($manejador);
-
-
+    
+    leeArchivo("_chat.txt");
 ?>
