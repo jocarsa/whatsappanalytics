@@ -1,2 +1,4 @@
 
 entradas/_chat.txt
+db/base.sqlite3
+db/analytics.sqlite3

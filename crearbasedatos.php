@@ -1,10 +1,13 @@
 <?php
 function creaBaseDatos(){
-    $db_path = 'db/base.sqlite3';
-    $db = new SQLite3($db_path);
-    if ($db) {
-        $create_table_query = '
-                CREATE TABLE "mensajes" (
+    $ruta = 'db/base.sqlite3';
+    $base = new SQLite3($ruta);
+    if ($base) {
+        $peticion = 'DROP TABLE mensajes';
+        $base->exec($peticion);
+        $peticion = '
+                CREATE TABLE  
+                "mensajes" (
                 "id"	INTEGER,
                 "Y"	INTEGER,
                 "m"	INTEGER,
@@ -17,14 +20,14 @@ function creaBaseDatos(){
                 PRIMARY KEY("id" AUTOINCREMENT)
             );
         ';
-        $result = $db->exec($create_table_query);
-        if ($result) {
+        $resultado = $base->exec($peticion);
+        if ($resultado) {
             return true;
         } else {
             return false;
         }
 
-        $db->close();
+        $base->close();
     } else {
         return false;
     }
