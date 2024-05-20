@@ -1,6 +1,5 @@
 <?php
 
-procesaLinea("[13/9/16, 20:31:58] Persona 1: Ok que tal como estas");
 
 function procesaLinea($entrada){
     $patron = "/\[(\d{1,2}\/\d{1,2}\/\d{2}), (\d{1,2}:\d{2}:\d{2})\] (.+?): (.+)/";
@@ -21,9 +20,9 @@ function procesaLinea($entrada){
             'persona' => $persona,
             'mensaje' => $mensaje,
         ];
-        print_r($result);
+        return $result;
     } else {
-        echo "The input string does not match the expected format.";
+        return false;
     }
 }    
 ?>
