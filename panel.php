@@ -3,12 +3,25 @@
     include "funciongrafica.php";
     include "funcionllamadagrafica.php";
     
-    llamadaGrafica("SELECT 
-        H as hora,
-        COUNT(H) as numero
-        FROM mensajes
-        GROUP BY H
-        ORDER BY H ASC;"
-        ,"Mensajes por cada hora del día")
+    llamadaGrafica(
+        "SELECT * FROM mensajesporhoras"
+        ,"Mensajes por cada hora del día"
+    );
+    llamadaGrafica(
+        "SELECT * FROM mensajesporaño"
+        ,"Mensajes por cada año"
+    );
+    llamadaGrafica(
+        "SELECT * FROM mensajespormes"
+        ,"Mensajes por cada mes"
+    );
+    llamadaGrafica(
+        "SELECT * FROM mensajesporpersona"
+        ,"Mensajes por cada persona"
+    );
+    llamadaGrafica(
+        "SELECT * FROM mensajespordia"
+        ,"Mensajes por cada dia"
+    );
 
 ?>

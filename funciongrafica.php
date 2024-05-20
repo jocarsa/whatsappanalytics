@@ -23,11 +23,21 @@
             }
             $html .="</tr>";
         }
+        $maximo = 0;
+        for($i = 0;$i<count($array);$i++){
+            $contador = 0;
+            foreach ($array[$i] as $clave=>$valor) {
+                if($contador == 1){
+                    if($valor > $maximo){$maximo = $valor;}
+                }
+                $contador++;
+            }
+        }
         for($i = 0;$i<count($array);$i++){
             $html .= "<tr>";
             foreach ($array[$i] as $clave=>$valor) {
                 if(is_numeric($valor)){
-                    $html .= "<td><div class='barra' style='width:".$valor."px'>".$valor."</td>";
+                    $html .= "<td><div class='barra' style='width:".(($valor/$maximo)*100)."%'>".$valor."</td>";
                 }else{
                     $html .= "<td>".trimToMaxLength($valor,20)."</td>";
                 }
