@@ -3,10 +3,10 @@
     function leeArchivo($nombre){
         $ruta = 'db/base.sqlite3';
         $base = new SQLite3($ruta);
-        $archivo = "entradas/$nombre";
+        $archivo = "entradas/".$nombre;
         $manejador = fopen($archivo, "r");
         $contador = 0;
-        $numero = 0;
+        $numero = 1;
         $peticion = "SELECT COUNT(id) as numero FROM mensajes";
         $resultado = $base->query($peticion);
         while ($fila = $resultado->fetchArray(SQLITE3_ASSOC)) {
@@ -33,7 +33,7 @@
                 //echo $peticion."<br>";
                 $base->exec($peticion);
                 $contador++;
-                echo (($contador/$numero)*100)."%<br>";
+                //echo (($contador/$numero)*100)."%<br>";
             } catch (Exception $e) {
     
 
@@ -42,5 +42,5 @@
         fclose($manejador);
     }
     
-    leeArchivo("_chat.txt");
+    //leeArchivo($nombre);
 ?>

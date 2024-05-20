@@ -4,6 +4,6 @@
     include "procesar.php";
         
     creaBaseDatos();
-    leeArchivo("_chat.txt");
+    leeArchivo("_chat3.txt");
     
 ?>
